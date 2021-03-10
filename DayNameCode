@@ -1,0 +1,117 @@
+Month1={"January":31,"February":28,"March":31,"April":30,"May":31,"June":30,"July":31,"August":31,"September":30,"October":31,"November":30,"December":31}
+Month2={"January":31,"February":29,"March":31,"April":30,"May":31,"June":30,"July":31,"August":31,"September":30,"October":31,"November":30,"December":31}
+Week={"Monday":3,"Tuesday":4,"Wednesday":5,"Thrusday":6,"Friday":7,"Saturday":1,"Sunday":2}
+day=int(input("Enter Date of month : "))
+mon=str(input("Enter Month Name : "))
+y=int(input("Enter the Year : "))
+
+if(y==1):
+    z=0
+    i=int(y/4)
+    z=z+i
+    j=int(y/100)
+    k=int(y/400)
+    l=j-k
+    z=z-l
+else:
+    z=y*365
+    i=int(y/4)
+    z=z+i
+    j=int(y/100)
+    k=int(y/400)
+    l=j-k
+    z=z-l+1
+#z is total number of days
+key,value=mon,day
+
+
+
+
+if (y % 4) == 0:
+    if (y % 100) == 0:
+        if (y % 400) == 0:
+            for mon in Month1.keys():
+                if key in Month2 and value <= Month2[key]:
+                    res = list(Month2.keys()).index(key)
+                    list1 = []
+                    for value in Month2.values(): 
+                        list1.append(value)
+                    s=sum(list1[0:res])
+                    su=s+day
+                    l=su+z
+                    n=l%7
+                    if n in Week.values():
+                        key_list = list(Week.keys())
+                        val_list = list(Week.values())
+                        position = val_list.index(n)
+                        print(key_list[position])
+                        break
+                else:
+                    print("INVALID DATE")
+                    break
+        else:
+            for mon in Month1.keys():
+                if key in Month1 and value <= Month1[key]:
+                    res = list(Month1.keys()).index(key)
+                    list1 = []
+                    for value in Month1.values(): 
+                        list1.append(value)
+                    s=sum(list1[0:res])
+                    su=s+day
+                    l=su+z
+                    n=l%7
+                    if n in Week.values():
+                        key_list = list(Week.keys())
+                        val_list = list(Week.values())
+                        position = val_list.index(n)
+                        print(key_list[position])
+                        break
+                else:
+                    print("INVALID DATE")
+                    break
+    else:
+        for mon in Month1.keys():
+            if key in Month1 and value <= Month1[key]:
+                res = list(Month1.keys()).index(key)
+                list1 = []
+                for value in Month1.values(): 
+                    list1.append(value)
+                s=sum(list1[0:res])
+                su=s+day
+                l=su+z
+                n=l%7
+                if n in Week.values():
+                        key_list = list(Week.keys())
+                        val_list = list(Week.values())
+                        position = val_list.index(n)
+                        print(key_list[position])
+                        break
+            else:
+                print("INVALID DATE")
+                break
+else:
+    for mon in Month1.keys():
+        if key in Month1 and value <= Month1[key]:
+            res = list(Month1.keys()).index(key)
+            list1 = []
+            for value in Month1.values(): 
+                list1.append(value)
+            s=sum(list1[0:res])
+            su=s+day
+            l=su+z
+            n=l%7
+            if n in Week.values():
+                key_list = list(Week.keys())
+                val_list = list(Week.values())
+                position = val_list.index(n)
+                print(key_list[position])
+                break
+        else:
+            print("INVALID DATE")
+            break
+
+
+
+
+
+
